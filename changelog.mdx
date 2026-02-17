@@ -1,0 +1,132 @@
+---
+title: Changelog
+description: Review the evolution of Caleido with details on recent releases, new features, and improvements.
+---
+
+## Recent Releases
+
+<Callout kind="info">
+  Check the [Caleido dashboard](https://dashboard.example.com) for automatic updates. Most changes apply seamlessly without manual intervention.
+</Callout>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added AI-powered cash flow predictions to spot risks earlier and forecast under changing business conditions.
+- Introduced real-time scenario modeling for investment planning.
+
+## Improvements
+
+- Enhanced dashboard performance with 40% faster load times for large datasets.
+- Improved mobile responsiveness for on-the-go forecasting.
+
+## Bug Fixes
+
+- Fixed intermittent sync issues with external bank APIs.
+- Resolved export errors for CSV and PDF reports.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["bugfix", "improvement"]}>
+
+## Improvements
+
+- Optimized forecasting algorithms for greater accuracy in volatile markets.
+- Added customizable alert thresholds for cash shortages.
+
+## Bug Fixes
+
+- Corrected calculation discrepancies in multi-currency forecasts.
+- Fixed UI glitches in the risk analysis chart.
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Core real-time cash forecasting engine launched.
+- Integrated bank account syncing for automated data import.
+- Basic risk detection and reporting dashboard.
+
+## Breaking Changes
+
+- Updated API authentication to use OAuth 2.0. Migrate your integrations using the guide below.
+
+</Update>
+
+## Upgrading to the Latest Version
+
+Follow these steps to ensure a smooth upgrade.
+
+<Steps>
+  <Step title="Backup Your Data" icon="database">
+
+    Export your forecasts and settings.
+
+````bash
+curl -X GET https://api.example.com/v1/forecasts/export \
+  -H "Authorization: Bearer YOUR_TOKEN"
+````
+
+  </Step>
+  <Step title="Update Client SDK" icon="download">
+
+    <Tabs>
+      <Tab title="npm" icon="package">
+````bash
+npm update caleido-sdk@latest
+````
+      </Tab>
+      <Tab title="Python" icon="code">
+````bash
+pip install caleido-sdk --upgrade
+````
+      </Tab>
+    </Tabs>
+
+  </Step>
+  <Step title="Migrate Auth" icon="shield">
+    Update to OAuth 2.0 flows. See the [authentication guide](/authentication) for details.
+  </Step>
+  <Step title="Test Forecasts" icon="zap">
+    Run a sample forecast to verify everything works.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  For v1.0.0 users, review breaking changes in API endpoints. Use the new `{https://api.example.com/v1}` base path.
+</Callout>
+
+## Upcoming Changes
+
+Preview of what's next:
+
+<Columns cols={3}>
+  <Card title="Scenario Simulations" icon="trending-up" href="/concepts#scenarios">
+    Advanced what-if analysis for multiple outcomes.
+  </Card>
+  <Card title="Team Collaboration" icon="users" href="/features#collaboration">
+    Real-time shared forecasting.
+  </Card>
+  <Card title="API Extensions" icon="code" href="/api-reference">
+    New webhooks for custom integrations.
+  </Card>
+</Columns>
+
+<Expandable title="Full Migration Guide" default-open="false">
+
+If you encounter issues, check these common fixes:
+
+```javascript
+// Example: Update auth header for new OAuth
+const authHeader = `Bearer ${accessToken}`;
+fetch('https://api.example.com/v1/forecasts', {
+  headers: { Authorization: authHeader }
+});
+```
+
+Contact support via the dashboard for assistance.
+
+</Expandable>

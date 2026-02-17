@@ -1,0 +1,183 @@
+---
+title: Integrations and Automations
+description: Connect Caleido with third-party services to streamline data import and enable automated workflows.
+---
+
+## Supported Integrations
+
+Caleido integrates seamlessly with popular accounting software and other financial tools. Use these connections to automatically import transaction data, bank balances, and forecasts into your Caleido workspace.
+
+<Columns cols={3}>
+  <Card title="QuickBooks Online" icon="database" href="https://quickbooks.intuit.com/">
+    Sync invoices, expenses, and bank transactions in real-time.
+  </Card>
+  <Card title="Xero" icon="shield" href="https://www.xero.com/">
+    Import contacts, bills, and payments with scheduled syncs.
+  </Card>
+  <Card title="NetSuite" icon="bar-chart-3" href="https://www.netsuite.com/">
+    Pull advanced financial data for enterprise forecasting.
+  </Card>
+  <Card title="Sage Intacct" icon="trending-up" href="https://www.sageintacct.com/">
+    Connect multi-entity accounting for consolidated views.
+  </Card>
+  <Card title="Zapier" icon="zap" href="https://zapier.com/">
+    Build no-code automations with 5000+ apps.
+  </Card>
+  <Card title="Custom API" icon="code" href="#webhooks">
+    Integrate via REST API and webhooks for full control.
+  </Card>
+</Columns>
+
+## Configuring Data Syncs and Imports
+
+Set up automated data syncs from your accounting software to keep your Caleido forecasts current. Follow these steps to connect and configure.
+
+<Callout kind="info">
+  Ensure you have admin access to your accounting software and a Caleido API key from your dashboard.
+</Callout>
+
+<Steps>
+  <Step title="Generate API Key" icon="key">
+    Navigate to `https://dashboard.caleido.io/settings/api` and create a new API key.
+  </Step>
+  <Step title="Authorize Connection" icon="link">
+    In Caleido dashboard, go to Integrations > Add Connection. Select your software and authorize via OAuth.
+  </Step>
+  <Step title="Configure Sync Schedule" icon="clock">
+    Choose sync frequency: daily, hourly, or real-time. Select data types like transactions and balances.
+  </Step>
+  <Step title="Test Import" icon="play">
+    Run a manual sync to verify data flows correctly.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="QuickBooks,Xero">
+  ```javascript
+  // QuickBooks OAuth setup example
+  const QuickBooks = require('node-quickbooks');
+  const qbo = new QuickBooks(
+    'CLIENT_ID',
+    'CLIENT_SECRET',
+    'REALM_ID',
+    false,
+    false,
+    false,
+    `{YOUR_CALEIDO_REFRESH_TOKEN}`
+  );
+  ```
+  ```javascript
+  // Xero connection example
+  const XeroClient = require('xero-node');
+  const xero = new XeroClient({
+    consumerKey: `{YOUR_XERO_KEY}`,
+    consumerSecret: `{YOUR_XERO_SECRET}`,
+    privateKey: `{YOUR_PRIVATE_KEY}`,
+    webhookHandlerUrl: 'https://api.caleido.io/v1/webhooks/xero'
+  });
+  ```
+</CodeGroup>
+
+## Setting Up Webhooks for Real-Time Updates
+
+Webhooks notify your systems instantly when new data arrives in Caleido, such as updated forecasts or transaction imports. Register a webhook endpoint to receive POST requests.
+
+Use the Caleido API to create webhooks:
+
+<Request tabs="cURL,JavaScript" show-lines="true">
+  ```bash
+  curl -X POST https://api.caleido.io/v1/webhooks \
+    -H "Authorization: Bearer {YOUR_API_KEY}" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "url": "https://your-webhook-url.com/caleido",
+      "events": ["transaction.created", "forecast.updated"],
+      "secret": "{YOUR_WEBHOOK_SECRET}"
+    }'
+  ```
+  ```javascript
+  const response = await fetch('https://api.caleido.io/v1/webhooks', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer {YOUR_API_KEY}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      url: 'https://your-webhook-url.com/caleido',
+      events: ['transaction.created', 'forecast.updated'],
+      secret: '{YOUR_WEBHOOK_SECRET}'
+    })
+  });
+  ```
+</Request>
+
+<Response tabs="201,400">
+  ```json
+  {
+    "id": "wh_1234567890",
+    "url": "https://your-webhook-url.com/caleido",
+    "events": ["transaction.created", "forecast.updated"],
+    "active": true
+  }
+  ```
+  ```json
+  {
+    "error": "Invalid URL",
+    "message": "Webhook URL must be publicly accessible"
+  }
+  ```
+</Response>
+
+<ParamField path="url" param-type="string" required="true">
+  Your publicly accessible HTTPS endpoint.
+</ParamField>
+
+<ParamField path="events" param-type="array" required="true">
+  Array of event types, e.g., `["transaction.created"]`.
+</ParamField>
+
+<ParamField path="secret" param-type="string" required="false">
+  Optional secret for signature verification.
+</ParamField>
+
+Verify incoming webhooks using HMAC SHA256 with your secret.
+
+## Troubleshooting Common Integration Issues
+
+<ExpandableGroup>
+  <Expandable title="Connection Fails with 401 Error" default-open="true">
+    Check your API key permissions. Regenerate if expired. Ensure OAuth scopes include `read_transactions` and `read_balances`.
+
+    Test with:
+    
+    ````bash
+    curl -H "Authorization: Bearer {YOUR_API_KEY}" https://api.caleido.io/v1/accounting/connections
+    ````
+  </Expandable>
+  
+  <Expandable title="Data Sync Delays">
+    Verify sync schedule in dashboard. For real-time, enable webhooks. Check accounting software rate limits.
+  </Expandable>
+  
+  <Expandable title="Webhook Not Triggering">
+    Confirm your endpoint responds with 200 OK within 5 seconds. View webhook delivery logs in Caleido dashboard.
+  </Expandable>
+  
+  <Expandable title="Duplicate Imports">
+    Enable deduplication in sync settings. Use transaction IDs as unique keys.
+  </Expandable>
+</ExpandableGroup>
+
+<Callout kind="tip">
+  For persistent issues, contact support at support@caleido.io with logs and API key ID (not the key itself).
+</Callout>
+
+## Next Steps
+
+<Columns cols={2}>
+  <Card title="API Reference" icon="book-open" href="/api-reference">
+    Explore full REST API endpoints.
+  </Card>
+  <Card title="Advanced Automations" icon="zap" href="/automations">
+    Build complex workflows with Zapier.
+  </Card>
+</Columns>

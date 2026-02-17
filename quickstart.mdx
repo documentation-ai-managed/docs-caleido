@@ -1,0 +1,144 @@
+---
+title: Getting Started with Caleido
+description: Set up your Caleido account, connect your data sources, and generate your first cash forecast quickly.
+---
+
+## Prerequisites
+
+<Callout kind="info" title="Before You Begin">
+Ensure you have:
+- An active email address for account creation
+- Access to your accounting software (QuickBooks Online, Xero, or similar)
+- Admin permissions in your accounting platform for integrations
+</Callout>
+
+Caleido provides real-time cash forecasting by connecting to your financial data. Complete these steps to set up your account and generate your first forecast in under 10 minutes.
+
+## Create Your Caleido Account
+
+Follow these steps to sign up and log in.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Visit `https://app.caleido.io` and click **Sign Up**.
+
+    Enter your email, create a password, and verify your email address.
+
+    <Image
+      src="https://framerusercontent.com/images/DkIuGH7O9oIT166snTUErTcbE.jpg?width=2556&height=1724"
+      alt="Caleido signup screen"
+      width="800"
+      height="538"
+    />
+  </Step>
+
+  <Step title="Log In" icon="log-in">
+    Return to `https://app.caleido.io/login` and sign in with your credentials.
+
+    Complete any onboarding prompts, such as setting your company name and time zone.
+  </Step>
+</Steps>
+
+## Connect Your Accounting Integration
+
+Connect your primary accounting platform to import transactions and balances automatically. Caleido supports popular platforms like QuickBooks and Xero.
+
+<Tabs>
+  <Tab title="QuickBooks Online" icon="database">
+    <Steps>
+      <Step title="Authorize Connection" icon="link">
+        In the Caleido dashboard, navigate to **Integrations > Accounting**.
+
+        Select **QuickBooks Online** and click **Connect**.
+      </Step>
+
+      <Step title="OAuth Flow" icon="key">
+        Log in to your QuickBooks account and grant Caleido read access to accounts, invoices, and bills.
+
+        Caleido will sync your last 90 days of data automatically.
+      </Step>
+    </Steps>
+  </Tab>
+
+  <Tab title="Xero" icon="database">
+    <Steps>
+      <Step title="Authorize Connection" icon="link">
+        Go to **Integrations > Accounting** and choose **Xero**.
+
+        Click **Connect with Xero**.
+      </Step>
+
+      <Step title="Grant Permissions" icon="key">
+        Approve access in Xero for bank transactions, contacts, and reports.
+
+        Initial sync completes in 2-3 minutes.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+After connecting, verify the sync status in the dashboard. Caleido refreshes data every 15 minutes.
+</Callout>
+
+## Generate Your First Cash Forecast
+
+With data connected, create a basic forecast.
+
+<Steps>
+  <Step title="Create Forecast" icon="plus">
+    Click **New Forecast** in the dashboard.
+
+    Set the forecast period to 12 months and select your connected accounting source.
+  </Step>
+
+  <Step title="Review Assumptions" icon="settings">
+    Adjust key inputs like expected inflows from receivables and planned expenses.
+
+    Use the default assumptions for your first run.
+  </Step>
+
+  <Step title="Run Forecast" icon="play">
+    Click **Generate Forecast**. Results appear in seconds, showing monthly cash balance projections.
+  </Step>
+</Steps>
+
+## Review Your Forecast Results
+
+Your dashboard displays:
+- Cash balance graph over time
+- Key risks like low-cash months
+- Investment opportunities
+
+<Image
+  src="https://framerusercontent.com/images/tiRVRkubw9tc0ytNmLl8o37NrnY.jpg?width=568&height=334"
+  alt="Sample Caleido cash forecast chart"
+  width="568"
+  height="334"
+/>
+
+Export as PDF or share via link for your team.
+
+## Next Steps
+
+<Columns cols={2}>
+  <Card title="Advanced Features" icon="sparkles" href="/introduction">
+    Explore integrations and custom scenarios.
+  </Card>
+
+  <Card title="API Authentication" icon="key" href="/authentication">
+    Automate forecasts with the Caleido API.
+  </Card>
+
+  <Card title="Troubleshooting" icon="help-circle" href="#">
+    Common sync issues and solutions.
+  </Card>
+
+  <Card title="Book a Demo" icon="video" href="https://calendly.com/iiro-christensen-1/caleido-discovery-call" target="_blank">
+    Schedule a personalized walkthrough.
+  </Card>
+</Columns>
+
+<Callout kind="success">
+Congratulations! You've generated your first Caleido cash forecast. Monitor daily for real-time updates as your business data changes.
+</Callout>
