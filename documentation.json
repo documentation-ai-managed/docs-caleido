@@ -13,127 +13,31 @@
     }
   },
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "Documentation",
-        "icon": "book",
-        "groups": [
+        "language": "Suomi",
+        "tabs": [
           {
-            "group": "Getting Started",
-            "icon": "rocket",
-            "pages": [
+            "tab": "Ohjeet",
+            "groups": [
               {
-                "title": "Introduction",
-                "path": "introduction",
-                "icon": "home"
-              },
-              {
-                "title": "Quickstart",
-                "path": "quickstart",
-                "icon": "zap"
-              },
-              {
-                "title": "Integraatiot",
-                "path": "integraatiot",
-                "icon": "plug"
-              }
-            ]
-          },
-          {
-            "group": "Ominaisuudet",
-            "pages": [
-              {
-                "group": "Peruskäyttö",
+                "group": "Kirjautuminen",
                 "pages": [
                   {
+                    "title": "Salasanan Resetointi",
+                    "path": "salasanan-resetointi"
+                  },
+                  {
+                    "title": "Salasana Unohtunut",
+                    "path": "salasana-unohtunut"
+                  },
+                  {
                     "title": "Kirjautuminen",
-                    "path": "kirjautuminen",
-                    "icon": "log-in"
-                  },
-                  {
-                    "title": "Salasana unohtunut",
-                    "path": "salasana-unohtunut",
-                    "icon": "key-round"
-                  },
-                  {
-                    "title": "Salasanan resetointi",
-                    "path": "salasanan-resetointi",
-                    "icon": "key-round"
+                    "path": "kirjautuminen"
                   }
                 ]
               }
             ]
-          },
-          {
-            "group": "Peruskonseptit",
-            "icon": "layers",
-            "pages": []
-          }
-        ]
-      },
-      {
-        "tab": "API Reference",
-        "icon": "code",
-        "groups": [
-          {
-            "group": "Endpoints",
-            "openapi": "api-reference/openapi.yaml",
-            "pages": []
-          }
-        ]
-      },
-      {
-        "tab": "Help Center",
-        "icon": "help-circle",
-        "pages": [
-          {
-            "title": "Help Center",
-            "path": "help-center",
-            "icon": "home"
-          },
-          {
-            "group": "FAQs",
-            "icon": "help-circle",
-            "expandable": false,
-            "pages": [
-              {
-                "title": "Getting Started FAQ",
-                "path": "help-center/faq/getting-started"
-              }
-            ]
-          },
-          {
-            "group": "Troubleshooting",
-            "icon": "alert-triangle",
-            "expandable": false,
-            "pages": [
-              {
-                "title": "Cannot Access Projects",
-                "path": "help-center/troubleshooting/cannot-access-projects"
-              }
-            ]
-          },
-          {
-            "group": "Guides",
-            "icon": "book-open",
-            "expandable": false,
-            "pages": [
-              {
-                "title": "Create a Project",
-                "path": "help-center/guides/create-project"
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "Changelog",
-        "icon": "clock",
-        "pages": [
-          {
-            "title": "Release History",
-            "path": "changelog",
-            "icon": "history"
           }
         ]
       }
