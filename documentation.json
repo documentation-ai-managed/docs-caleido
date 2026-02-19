@@ -31,30 +31,37 @@
                 "title": "Quickstart",
                 "path": "quickstart",
                 "icon": "zap"
-              }
-            ]
-          },
-          {
-            "group": "Core Concepts",
-            "icon": "layers",
-            "pages": [
+              },
               {
-                "title": "Features",
-                "path": "features",
-                "icon": "file-text"
-              }
-            ]
-          },
-          {
-            "group": "Advanced",
-            "icon": "package",
-            "pages": [
-              {
-                "title": "Integrations",
-                "path": "integrations",
+                "title": "Integraatiot",
+                "path": "integraatiot",
                 "icon": "plug"
               }
             ]
+          },
+          {
+            "group": "Ominaisuudet",
+            "pages": [
+              {
+                "group": "Peruskäyttö",
+                "pages": [
+                  {
+                    "title": "Kirjautuminen",
+                    "path": "kirjautuminen",
+                    "icon": "log-in"
+                  },
+                  {
+                    "title": "Salasana unohtunut",
+                    "path": "salasana-unohtunut"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "group": "Peruskonseptit",
+            "icon": "layers",
+            "pages": []
           }
         ]
       },
