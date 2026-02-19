@@ -52,7 +52,13 @@
                   },
                   {
                     "title": "Salasana unohtunut",
-                    "path": "salasana-unohtunut"
+                    "path": "salasana-unohtunut",
+                    "icon": "key-round"
+                  },
+                  {
+                    "title": "Salasanan resetointi",
+                    "path": "salasanan-resetointi",
+                    "icon": "key-round"
                   }
                 ]
               }
